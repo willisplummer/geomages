@@ -5,9 +5,9 @@ cmake_minimum_required(VERSION 3.30)
 set(CMAKE_BUILD_TYPE Debug)
 
 project(
-  my-raylib-starter
+  geomages
   VERSION 0.1
-  DESCRIPTION "Template for my Raylib Projects"
+  DESCRIPTION "Game by Willis Plummer"
   LANGUAGES C)
 
 # Deps
@@ -29,7 +29,10 @@ set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE) # don't build the supplied examples
 set(BUILD_GAMES    OFF CACHE BOOL "" FORCE) # don't build the supplied example games
 set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
 
-FetchContent_MakeAvailable(raylib)
+# Only populate if not already done
+if(NOT raylib_POPULATED)
+    FetchContent_MakeAvailable(raylib)
+endif()
 
 # My Game
 
@@ -44,6 +47,11 @@ if(APPLE)
     target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
     target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
 endif()
+
+add_custom_target(run
+    COMMAND bash -c './${PROJECT_NAME}'
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
 add_custom_target(watch
     COMMAND ${CMAKE_COMMAND} -E echo "Watching for changes using fswatch..."

@@ -10,7 +10,7 @@ cmake --build build
 ## Run The Executable
 ```
 cd build
-./my-raylib-starter
+./geomages
 ```
 
 ## Run and Watch
