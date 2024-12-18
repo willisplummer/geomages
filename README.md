@@ -10,7 +10,7 @@ cmake --build build
 ## Run The Executable
 ```
 cd build
-./geomages
+make run
 ```
 
 ## Run and Watch
