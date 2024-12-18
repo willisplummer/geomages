@@ -1,36 +1,24 @@
-# Raylib Hot Reload Starter
-
-This is mainly just a copy of [@seletz's project](https://github.com/seletz/raylib-hot-code-reload-c-example) at this point, but it works on Mac
+# GEOMAGES
 
 ## Setup
 ```
 brew install cmake
-mkdir build
-cd build
-cmake ..
-cmake --build .
+cmake -S . -B build
+cmake --build build
 ```
 
-## Run
-in one terminal window:
+## Run The Executable
 ```
 cd build
 ./my-raylib-starter
 ```
 
-## Watch for changes
-in another:
+## Run and Watch
 ```
 cd build
 make watch
 ```
-
-Then when you make changes in game.c, the library will automatically be rebuilt and you can press `r` in the game window to load in the latest
-
-
-## TODO
-Ideally, you wouldn't have to press `r` to load in the game state, instead, we'd detect when the libgamecode.so had changed and reload it automatically in main.c
-
+the exe is launched in background and then changes to `game.c` are automatically built and pulled into the program.
 
 ## Notes
 `dll` is dynamically load library

@@ -50,15 +50,18 @@ int main(void) {
   state = init_gamestate();
 
   SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+
   InitWindow(screenWidth, screenHeight, "Hot Reloading example.");
 
   SetTargetFPS(60);
 
+  printf("stat check");
   if (stat("libgamecode.so", &prev_stat) < 0) {
     perror("stat");
     return 1;
   }
 
+  printf("windowshouldclosecheck");
   while (!WindowShouldClose()) {
     if (stat("libgamecode.so", &current_stat) < 0) {
       perror("stat");

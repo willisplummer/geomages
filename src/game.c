@@ -46,7 +46,8 @@ int update_frame(gamestate_t *state) {
 
   BeginMode3D(state->camera);
 
-  DrawCube(state->cubePosition, 2.0f, 2.0f, 2.0f, RED);
+  DrawCube(state->cubePosition, 2.0f, 2.0f, 2.0f, GREEN);
+
   DrawCubeWires(state->cubePosition, 2.0f, 2.0f, 2.0f, MAROON);
 
   DrawGrid(100, 1.0f);
